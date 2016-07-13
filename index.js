@@ -4,7 +4,7 @@
 var stripAnsi = require('strip-ansi');
 
 function xmlSanitizer(string, replacement) {
-  return stripAnsi(string.replace(/[\u0000-\u0008]|\u000B|\u000C|[\u000E-\u001F]|[\u0075-\u0084]|[\u0086-\u009f]|[\uD800-\uDFFF]|[\uFDD0-\uFDFF]|\uFFFF/g, replacement || ''));
+  return stripAnsi(string.replace(/[\u0000-\u0008]|\u000B|\u000C|[\u000E-\u001F]|[\u007f-\u0084]|[\u0086-\u009f]|[\uD800-\uDFFF]|[\uFDD0-\uFDFF]|\uFFFF|\uC008/, replacement || ''));
 }
 
 module.exports = xmlSanitizer;

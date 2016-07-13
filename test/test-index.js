@@ -91,3 +91,9 @@ test('Replace Characters', function (t) {
   });
   t.end();
 });
+
+test('Do not replace proper character', function (t) {
+  var text = 'Why oh why do you do this to me';
+  t.equals(xmlSanitizer(text), text, 'it should return the original text');
+  t.end();
+});
