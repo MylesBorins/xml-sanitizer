@@ -12,6 +12,7 @@ var xmlSanitizer = require('xml-sanitizer');
 var someText = 'This is invalid \u0000';
 
 xmlSanitizer(someText); \\ 'This is invalid '
+xmlSanitizer(someText, '🎉'); \\ 'This is invalid 🎉'
 ```
 
 ## License

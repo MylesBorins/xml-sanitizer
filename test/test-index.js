@@ -84,3 +84,10 @@ test('Sanitizes as expected', function (t) {
   });
   t.end();
 });
+
+test('Replace Characters', function (t) {
+  invalidCharacters.forEach(function(char) {
+    t.equals(xmlSanitizer(char, '🎉'), '🎉', 'it should return 🎉');
+  });
+  t.end();
+});
