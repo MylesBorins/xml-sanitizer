@@ -1,0 +1,17 @@
+{
+  "name": "xml-sanitizer",
+  "version": "0.0.0",
+  "description": "Sanitize out invalid xml characters from your strings",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run lint && npm run tap",
+    "tap": "tap \"test/**/**/test-*.js\"",
+    "lint": "eslint index.js test/"
+  },
+  "author": "Myles Borins <myles.borins@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "eslint": "^3.0.1",
+    "tap": "^6.1.1"
+  }
+}
