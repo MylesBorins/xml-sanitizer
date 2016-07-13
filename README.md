@@ -1,6 +1,6 @@
 # xml-sanitizer
 
-> It's named terribly but it works
+> Sanitize out invalid xml characters from your strings
 
 ## Purpose
 

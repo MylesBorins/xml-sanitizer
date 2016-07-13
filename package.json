@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Sanitize out invalid xml characters from your strings",
   "main": "index.js",
+  "repo": "https://github.com/TheAlphaNerd/xml-sanitizer",
   "scripts": {
     "test": "npm run lint && npm run tap",
     "tap": "tap \"test/**/**/test-*.js\"",
