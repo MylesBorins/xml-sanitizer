@@ -85,6 +85,13 @@ test('Sanitizes as expected', function (t) {
   t.end();
 });
 
+test('Multiple Characters', function (t) {
+  invalidCharacters.forEach(function(char) {
+    t.equals(xmlSanitizer(char + '\u0000\u0000'), '', 'it should return an empty string');
+  });
+  t.end();
+});
+
 test('Replace Characters', function (t) {
   invalidCharacters.forEach(function(char) {
     t.equals(xmlSanitizer(char, '🎉'), '🎉', 'it should return 🎉');
