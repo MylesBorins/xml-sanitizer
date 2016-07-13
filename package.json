@@ -3,7 +3,7 @@
   "version": "1.1.1",
   "description": "Sanitize out invalid xml characters from your strings",
   "main": "index.js",
-  "repo": "https://github.com/TheAlphaNerd/xml-sanitizer",
+  "repository": "https://github.com/TheAlphaNerd/xml-sanitizer",
   "scripts": {
     "test": "npm run lint && npm run tap",
     "tap": "tap \"test/**/**/test-*.js\"",
@@ -12,8 +12,10 @@
   "author": "Myles Borins <myles.borins@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "strip-ansi": "^3.0.1"
+  },
+  "devDependencies": {
     "eslint": "^3.0.1",
-    "strip-ansi": "^3.0.1",
     "tap": "^6.1.1"
   }
 }
