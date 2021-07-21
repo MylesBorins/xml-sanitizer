@@ -80,27 +80,27 @@ var invalidCharacters = [
 
 test('Sanitizes as expected', function (t) {
   invalidCharacters.forEach(function(char) {
-    t.equals(xmlSanitizer(char), '', 'it should return an empty string');
+    t.equal(xmlSanitizer(char), '', 'it should return an empty string');
   });
   t.end();
 });
 
 test('Multiple Characters', function (t) {
   invalidCharacters.forEach(function(char) {
-    t.equals(xmlSanitizer(char + '\u0000\u0000'), '', 'it should return an empty string');
+    t.equal(xmlSanitizer(char + '\u0000\u0000'), '', 'it should return an empty string');
   });
   t.end();
 });
 
 test('Replace Characters', function (t) {
   invalidCharacters.forEach(function(char) {
-    t.equals(xmlSanitizer(char, '🎉'), '🎉', 'it should return 🎉');
+    t.equal(xmlSanitizer(char, '🎉'), '🎉', 'it should return 🎉');
   });
   t.end();
 });
 
 test('Do not replace proper character', function (t) {
   var text = 'Why oh why do you do this to me';
-  t.equals(xmlSanitizer(text), text, 'it should return the original text');
+  t.equal(xmlSanitizer(text), text, 'it should return the original text');
   t.end();
 });
