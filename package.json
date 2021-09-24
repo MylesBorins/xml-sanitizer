@@ -12,7 +12,7 @@
   "author": "Myles Borins <myles.borins@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "strip-ansi": "^3.0.1"
+    "strip-ansi": "^6.0.1"
   },
   "devDependencies": {
     "eslint": "^7.31.0",
