@@ -11,18 +11,17 @@ on:
         required: true
 
 jobs:
-  bump-version:
-    name: Bump the version of the package
-    steps:
-      - uses: ./helpers/increment-version.yml
+  npm-version:
+    uses: mylesborins/xml-sanitizer/.github/workflows/_increment-version.yml@main
+    with:
+      version: ${{ github.event.inputs.version }}
 
-  publish:
-    name: Publish to npm
-    steps:
-      - uses: ./helpers/publish-to-npm.yml
+  publish-to-npm:
+    uses: mylesborins/xml-sanitizer/.github/workflows/_publish-to-npm.yml@main
+    secrets:
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+    needs: npm-version
 
   create-github-release:
-    name: Create GitHub Release
-    needs: publish
-    steps:
-      - uses: ./helpers/create-release-from-tag.yml
+    uses: mylesborins/xml-sanitizer/.github/workflows/_create-github-release.yml@main
+    needs: publish-to-npm
