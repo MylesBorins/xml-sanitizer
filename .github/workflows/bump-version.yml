@@ -1,0 +1,28 @@
+name: Bump version
+
+on:
+  workflow_dispatch:
+    # Inputs the workflow accepts.
+    inputs:
+      version:
+        # Friendly description to be shown in the UI instead of 'name'
+        description: 'Semver type of new version (major / minor / patch)'
+        # Input has to be provided for the workflow to run
+        required: true
+
+jobs:
+  bump-version:
+    name: Bump the version of the package
+    steps:
+      - uses: ./helpers/increment-version.yml
+
+  publish:
+    name: Publish to npm
+    steps:
+      - uses: ./helpers/publish-to-npm.yml
+
+  create-github-release:
+    name: Create GitHub Release
+    needs: publish
+    steps:
+      - uses: ./helpers/create-release-from-tag.yml
