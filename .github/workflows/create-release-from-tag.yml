@@ -6,33 +6,12 @@ on:
 name: 'Create Release From Tag'
 
 jobs:
+  
   publish-to-npm:
-    name: Publish to npm
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 14
-      - name: Publish
-        run: |
-          npm config set //registry.npmjs.org/:_authToken ${NPM_TOKEN}
-          npm ci
-          npm publish
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+    uses: mylesborins/xml-sanitizer/.github/workflows/_publish-to-npm.yml@main
+    secrets:
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   create-github-release:
-    name: Create GitHub Release
-    runs-on: ubuntu-latest
+    uses: mylesborins/xml-sanitizer/.github/workflows/_create-github-release.yml@main
     needs: publish-to-npm
-    steps:
-      - name: Create Release Notes
-        uses: actions/github-script@v4.0.2
-        with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
-          script: |
-            await github.request(`POST /repos/${{ github.repository }}/releases`, {
-              tag_name: "${{ github.ref }}",
-              generate_release_notes: true
-            });
