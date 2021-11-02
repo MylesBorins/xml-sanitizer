@@ -7,10 +7,10 @@ name: 'Create Release From Tag'
 
 jobs:
   publish-to-npm:
-    uses: mylesborins/reusable-workflows/publish-to-npm.yml@main
+    uses: mylesborins/reusable-workflows/.github/workflows/publish-to-npm.yml@main
     secrets:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   create-github-release:
-    uses: mylesborins/reusable-workflows/create-github-release.yml@main
+    uses: mylesborins/reusable-workflows/.github/workflows/create-github-release.yml@main
     needs: publish-to-npm
