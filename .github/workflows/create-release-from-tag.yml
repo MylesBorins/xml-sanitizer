@@ -6,12 +6,11 @@ on:
 name: 'Create Release From Tag'
 
 jobs:
-  
   publish-to-npm:
-    uses: mylesborins/xml-sanitizer/.github/workflows/_publish-to-npm.yml@main
+    uses: mylesborins/reusable-workflows/publish-to-npm.yml@main
     secrets:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   create-github-release:
-    uses: mylesborins/xml-sanitizer/.github/workflows/_create-github-release.yml@main
+    uses: mylesborins/reusable-workflows/create-github-release.yml@main
     needs: publish-to-npm
