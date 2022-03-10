@@ -15,7 +15,7 @@
     "strip-ansi": "^6.0.1"
   },
   "devDependencies": {
-    "eslint": "^7.31.0",
-    "tap": "^15.0.9"
+    "eslint": "^8.10.0",
+    "tap": "^16.0.0"
   }
 }
