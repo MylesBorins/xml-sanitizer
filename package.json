@@ -1,6 +1,6 @@
 {
   "name": "xml-sanitizer",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Sanitize out invalid xml characters from your strings",
   "main": "index.js",
   "repository": "https://github.com/MylesBorins/xml-sanitizer",
