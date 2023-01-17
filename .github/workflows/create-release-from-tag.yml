@@ -5,6 +5,9 @@ on:
 
 name: 'Create Release From Tag'
 
+permissions:
+  id-token: write
+
 jobs:
   publish-to-npm:
     name: Publish package
@@ -21,7 +24,7 @@ jobs:
     - name: Install dependencies and build
       run: npm ci
     - name: Publish package
-      run: npm publish
+      run: npm exec npm@npm/cli#provenance -- publish --provenance
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
