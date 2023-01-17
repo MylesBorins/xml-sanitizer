@@ -5,11 +5,29 @@ on:
 
 name: 'Create Release From Tag'
 
+permissions:
+  contents: read
+  id-token: write
+
 jobs:
   publish-to-npm:
-    uses: mylesborins/reusable-workflows/.github/workflows/publish-to-npm.yml@main
-    secrets:
-      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+    name: Publish package
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout source
+      uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
+    - name: Setup node
+      uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c # v3
+      with:
+        node-version: 18
+        registry-url: 'https://registry.npmjs.org'
+        cache: npm
+    - name: Install dependencies and build
+      run: npm ci
+    - name: Publish package
+      run: npm exec npm@npm/cli#provenance -- publish --provenance
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   create-github-release:
     uses: mylesborins/reusable-workflows/.github/workflows/create-github-release.yml@main
