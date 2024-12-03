@@ -4,7 +4,7 @@
 
 ## Purpose
 
-Have you ever tried to put the output of a child process into an xml document before? Certain CLI utilities will generate characters that look great on your terminal, but will cause mayhem in XML world. This package is a simply regular expression that will clean all of that up for you!
+Have you ever tried to put the output of a child process into an xml document before? Certain CLI utilities will generate characters that look great on your terminal, but will cause mayhem in XML world. This package is a simple regular expression that will clean all of that up for you!
 
 ## Usage
 ```js
