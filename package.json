@@ -11,6 +11,9 @@
   },
   "author": "Myles Borins <myles.borins@gmail.com>",
   "license": "MIT",
+  "engines": {
+    "node": "^22.11.0 || ^24.11.0 || >=26.0.0"
+  },
   "dependencies": {
     "strip-ansi": "^6.0.1"
   },
