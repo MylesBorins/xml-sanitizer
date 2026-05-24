@@ -1,6 +1,8 @@
 # This is a basic workflow that is manually triggered
 
 name: Bump version
+permissions:
+  contents: read
 
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
@@ -40,7 +42,7 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v6
       with:
-        node-version: 22
+        node-version: 24
         cache: 'npm'
 
     - name: Install npm packages
