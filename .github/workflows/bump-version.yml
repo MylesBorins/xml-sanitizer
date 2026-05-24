@@ -14,7 +14,7 @@ on:
         # Input has to be provided for the workflow to run
         required: true
         type: choice
-        options: 
+        options:
         - patch
         - minor
         - major
@@ -33,14 +33,14 @@ jobs:
     # run that runs on: tag. (Using the GitHub token would
     # not run the workflow to prevent infinite recursion.)
     - name: Check out source
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
       with:
         ssh-key: ${{ secrets.DEPLOY_KEY }}
 
     - name: Setup Node.js
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v6
       with:
-        node-version: 20
+        node-version: 22
         cache: 'npm'
 
     - name: Install npm packages
